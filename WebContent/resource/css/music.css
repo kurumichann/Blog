@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+#musics{
+	float: right;
+	width: 731px;	
+}
+.arti_h{
+	margin-bottom: 10px;
+}
+.arti_info{
+	margin-bottom: 5px;
+}
+video{
+	height:50px;
+	width: 400px;
+}
+#input_title{
+	margin:0 0 5px 0;
+}
+#input_pic{
+	margin:0 0 5px 0;
+}
+#input_src{
+	margin:0 0 5px 0;
+}
+.arti_img h1{
+	margin-bottom: 0px;
+}

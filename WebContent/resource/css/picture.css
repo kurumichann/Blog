@@ -1,0 +1,48 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	
+}
+hr{
+	color:#ccc;
+	height: 0.5px;
+	width:180px;
+}
+#content_pic{
+	position: relative;
+	width: 800px;
+	height: 1000px;
+}
+
+.box{
+	padding: 7.5px 0 0 15px;
+	float: left;
+}
+.pic{
+	width: 234px;
+	height: auto;
+	padding:5px;
+	border:1px solid #ccc;
+	border-radius:5px;
+	box-shadow:0 0 5px #ccc;
+}
+.pic img{
+	width: 234px;
+	height: auto;
+}
+#picture_form{
+	position:absolute;
+	left: 0px;
+	
+}
+#con2{
+	margin-top:-10px;
+	margin-left:10px;
+	border-bottom: none;    
+}
+#info{
+	margin-top:5px;
+	margin-left:10px;
+}
+
+
