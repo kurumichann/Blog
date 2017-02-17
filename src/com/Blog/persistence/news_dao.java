@@ -11,25 +11,25 @@ import com.Blog.Crawler.News;
 public class news_dao implements news_dao_interface{
 
 	@Autowired
-	JdbcTemplate simplejdbc;
+	JdbcTemplate jdbcTemp;
 	@Autowired
 	private News news;
 	@Override
 	public int getTotalCount() {
 		String sql = "SELECT count(title) from news";
-		return simplejdbc.queryForObject(sql, Integer.class);
+		return jdbcTemp.queryForObject(sql, Integer.class);
 	}
 
 	@Override
 	public List<Map<String, Object>> loadNews() {
 		String sql = "SELECT title,img,time,content,author FROM news";	
-		return simplejdbc.queryForList(sql);
+		return jdbcTemp.queryForList(sql);
 	}
 
 	@Override
 	public List<Map<String, Object>> changePage(int page) {
 		String sql = "SELECT title,time,img,content,author FROM news LIMIT "+((page-1)*9)+",9";
-		return simplejdbc.queryForList(sql);
+		return jdbcTemp.queryForList(sql);
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class news_dao implements news_dao_interface{
 	@Override
 	public List<Map<String, Object>> searchNews(String keyword) {
 		String sql = "SELECT title,time,content,author,img FROM news where title = ?";		
-		return simplejdbc.queryForList(sql, keyword);
+		return jdbcTemp.queryForList(sql, keyword);
 	}
 
 	@Override

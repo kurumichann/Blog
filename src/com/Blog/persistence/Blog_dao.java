@@ -13,26 +13,13 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 public class Blog_dao implements Blog_dao_interface {
 
-
-	JdbcTemplate jdbctemp = null;
+	@Autowired
+	JdbcTemplate jdbctemp;
 	
 	@Autowired
 	private article article = null;	
-	
-
 	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-
-	@Autowired
-	public JdbcTemplate getjdbctemp() {
-		return jdbctemp;
-	}
 	
-    @Autowired
-	public void setjdbctemp(JdbcTemplate jdbctemp) {
-		this.jdbctemp = jdbctemp;
-	}
-
-    
 	@Override
 	public List<Map<String, Object>> loadHomeArticle() {
 		String sql  = "select title,content,img,author,time,id from article order by time desc limit 0,9";
@@ -108,7 +95,7 @@ public class Blog_dao implements Blog_dao_interface {
 		String sql  = "select title,id from article order by time desc limit 0,3";
 		return jdbctemp.queryForList(sql);
 	}
-
+	
 	@Override
 	public List<Map<String, Object>> getComments(int id) {
 		String sql = "select author,comment,time from article_comment where id = ?";

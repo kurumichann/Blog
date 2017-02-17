@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class picture_dao implements Picture_interface{
 	
+	@Autowired
 	JdbcTemplate jdbcTemplate = null;
 	@Autowired
 	public void setjdbcTemplate(JdbcTemplate jdbcTemplate){
