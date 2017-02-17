@@ -3,7 +3,7 @@ $(function(){
         if($("#login_user").length>0)
         {
            $("#login_h").remove();
-           $("#login_user li").eq(0).children("a").attr("href","/springWEB/logout");
+           $("#login_user li").eq(0).children("a").attr("href","/Blog/logout");
         }
         //模态窗口，cover，锁定滚动条
 	    $("#login_h").click(function(e){
@@ -25,7 +25,7 @@ $(function(){
          var logindialog = "<div id='modaldialog'>"+"<div id = 'login-register-header'><h>login-register</h>"+
             "<div id = 'x'></div></div>"+
             "<div id = 'mainform'>"+
-            "<form method = 'post' action='/springWEB/login'>"+
+            "<form method = 'post' action='/Blog/login'>"+
             "<div id = username><input type='text' name='username' placeholder='Username' /><span id=warn></span></div>"+
             "<div id = password><input type='password' name='password' placeholder='Password'/></div>"+
 //            "<input type='hidden' name='${_csrf.parameterName}' value='${_csrf.token}' />"+

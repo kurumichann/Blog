@@ -14,10 +14,6 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 public class Blog_dao implements Blog_dao_interface {
 
 
-	@Autowired
-
-	
-
 	JdbcTemplate jdbctemp = null;
 	
 	@Autowired
@@ -40,7 +36,6 @@ public class Blog_dao implements Blog_dao_interface {
 	@Override
 	public List<Map<String, Object>> loadHomeArticle() {
 		String sql  = "select title,content,img,author,time,id from article order by time desc limit 0,9";
-
 		return jdbctemp.queryForList(sql);
 
 
@@ -76,7 +71,7 @@ public class Blog_dao implements Blog_dao_interface {
 		String sql = "delete  from article where id = ?";
 		String sql2 = "delete  from article_comment where id = ??";
 		
-		File img = new File("/eclipse/workspace/springweb/WebContent/resource/article_img/"+imgName);
+		File img = new File("/eclipse/workspace/Blog/WebContent/resource/article_img/"+imgName);
 		img.delete();
 		jdbctemp.update(sql,id);
 		
@@ -112,7 +107,6 @@ public class Blog_dao implements Blog_dao_interface {
 	public List<Map<String, Object>> getTop3() {
 		String sql  = "select title,id from article order by time desc limit 0,3";
 		return jdbctemp.queryForList(sql);
-
 	}
 
 	@Override

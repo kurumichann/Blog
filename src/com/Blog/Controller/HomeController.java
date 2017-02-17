@@ -78,7 +78,7 @@ public class HomeController {
 	   }else
 	   {
 		   try{
-/*		   File file = new File("/eclipse/workspace/springweb/WebContent/resource/article_img/"+article.getImg());
+/*		   File file = new File("/eclipse/workspace/Blog/WebContent/resource/article_img/"+article.getImg());
 		   System.out.println(file.getAbsolutePath());
 		   FileUtils.writeByteArrayToFile(file,image.getBytes());*/
 		   imgcompress.setImg(image);

@@ -21,13 +21,13 @@ function turnTopage(page)
     var url = window.location.href.toString();
         if (url.indexOf("index")!=-1) {
            if (url.indexOf("timeasc") != -1) {
-               window.location.href = "/springWEB/index/page=" + page + "timeasc";
+               window.location.href = "/Blog/index/page=" + page + "timeasc";
               } else {
-               window.location.href = "/springWEB/index/page=" + page + "timedesc";
+               window.location.href = "/Blog/index/page=" + page + "timedesc";
              }
          }else {
         if(url.indexOf("news")!=-1){
-            window.location.href = "/springWEB/news/page=" + page;
+            window.location.href = "/Blog/news/page=" + page;
         }
     }
     

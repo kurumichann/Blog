@@ -130,7 +130,7 @@
 						</div>
 						</header>
 						<div class="arti_img">
-							<img src="/springWEB/resource/music_img/${music.img}">
+							<img src="/Blog/resource/music_img/${music.img}">
 							<h1>${music.description}</h1>
 							<video controls="" name="media"> <source
 								src="${music.src}" type="audio/mpeg"></video>

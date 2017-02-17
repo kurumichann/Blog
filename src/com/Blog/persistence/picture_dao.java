@@ -8,31 +8,19 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class picture_dao implements Picture_interface{
 	
-
 	JdbcTemplate jdbcTemplate = null;
 	@Autowired
 	public void setjdbcTemplate(JdbcTemplate jdbcTemplate){
-		JdbcTemplate simplejdbc = null;
-	}
-
-	
-	@Autowired
-	public void setSimplejdbc(JdbcTemplate simplejdbc)
-
-	{
 		this.jdbcTemplate = jdbcTemplate;
 	}
-	
 	@Override
 	public List<Map<String,Object>> getInfo() {
-		// TODO Auto-generated method stub
 		String sql = "select img,user,content,createTime,good,id from picture";
 		return jdbcTemplate.queryForList(sql);	
 	}
 	
 	@Override
 	public void setPicture(Picture picture) {
-		// TODO Auto-generated method stub
 		String sql1 = "SELECT MAX(id) FROM picture";
 
 		int maxId = jdbcTemplate.queryForObject(sql1, Integer.class)+1;
@@ -44,7 +32,6 @@ public class picture_dao implements Picture_interface{
 
 	@Override
 	public int likePicture(String authorName,String imageName) {
-		// TODO Auto-generated method stub
 		String sql1 = "insert into pic_good(id,author) values(?,?)";
 		try {
 			jdbcTemplate.update(sql1, imageName,authorName);

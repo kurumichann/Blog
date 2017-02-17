@@ -88,7 +88,7 @@ window.onload = function(){
       summary:$("#arti_img h1").text(),/*分享摘要(可选)*/
       title:$("#articles h1").text(),/*分享标题(可选)*/
       site:'',/*分享来源 如：腾讯网(可选)*/
-      pics:'springWEB/'+$(".arti_img img").attr("src"), /*分享图片的路径(可选)*/
+      pics:'Blog/'+$(".arti_img img").attr("src"), /*分享图片的路径(可选)*/
       style:'202',
       width:105,
       height:31

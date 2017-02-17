@@ -1,15 +1,15 @@
 $(document).ready(function(){
 	$("#mainList li").eq(0).click(function(){
-		window.location.href="/springWEB/index";		
+		window.location.href="/Blog/index";		
 	})
 	$("#mainList li").eq(1).click(function(){
-        window.location.href="/springWEB/picture";     
+        window.location.href="/Blog/picture";     
     })
 	$("#mainList li").eq(2).click(function(){
-        window.location.href="/springWEB/music";     
+        window.location.href="/Blog/music";     
     })
     $("#mainList li").eq(3).click(function(){
-        window.location.href="/springWEB/news";    
+        window.location.href="/Blog/news";    
     })
 	$("#mainList li").hover(
 	    function(){

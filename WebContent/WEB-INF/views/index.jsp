@@ -104,7 +104,7 @@
 						<!-- hasRole('manager') or hasRole('general') -->
 						<security:authorize access="hasAnyRole('manager','general')">
 						    <ul id="login_user">
-							   <li ><a  href="springWEB/logout">
+							   <li ><a  href="Blog/logout">
 							     <security:authentication property="name"></security:authentication>&nbsp;
 							       </a>
 							   </li>

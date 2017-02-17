@@ -5,10 +5,10 @@ $(document).ready(function(){
     var url = window.location.href;
     if(url.indexOf("index/")!=-1||url.indexOf("news/")!=-1||url.indexOf("article/")!=-1||
         url.indexOf("picture/")!=-1||url.indexOf("music/")!=-1){
-          $.get("/springWEB/index/topThreeArticle",
+          $.get("/Blog/index/topThreeArticle",
             function(data,satus){
             for(var i = 0 ; i < data.length ; i++){
-                var temp = "<a href=/springWEB/article/id="+data[i].id+">"+data[i].title+"</a><br />";
+                var temp = "<a href=/Blog/article/id="+data[i].id+">"+data[i].title+"</a><br />";
                 $(".titledown").eq(1).append(temp);
             }
           })
