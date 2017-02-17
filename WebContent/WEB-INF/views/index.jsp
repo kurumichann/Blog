@@ -27,6 +27,7 @@
 <script type="text/javascript" src="resource/js/navigation.js"></script>
 <script type="text/javascript" src="resource/js/searchArticle.js"></script>
 <script type="text/javascript" src="resource/js/roleBasedList.js"></script>
+<script type="text/javascript" src="resource/js/length_restrict.js"></script>
 <head>
 <title>KURUMI NO jiken</title>
 </head>
@@ -135,12 +136,12 @@
 								<h>由${data.author}在${data.time}</h>
 							</div>
 							</header>
-							<c:if test="${data.img!='null'}" var="rs">
-								<div class="arti_img">
+							<div class="arti_img">
+								<c:if test="${data.img!='null'}" var="rs">
 									<img src="resource/article_img/${data.img}">
-									<h1>${data.content}</h1>
-								</div>
-							</c:if>
+								</c:if>
+								<h1>${data.content}</h1>
+							</div>
 							<footer>
 							<hr></hr>
 							</footer> </article>

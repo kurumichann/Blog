@@ -71,8 +71,6 @@ public class HomeController {
 	   System.out.println("addNewArticleFromform");
 	   article.setImg(session.getAttribute("authorName")+"-"+article.getTitle()+"."+image.getContentType().subSequence(6, image.getContentType().length()));
 	   article.setAuthor(session.getAttribute("authorName").toString());
-	   /**�ж�img�Ƿ�Ϊ��**/
-	   /**start upload img**/
 	   if(image.getContentType().subSequence(6, image.getContentType().length()).equals("ation/octet-stream"))
 	   {
 		   article.setImg("null");

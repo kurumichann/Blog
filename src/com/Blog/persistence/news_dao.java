@@ -22,13 +22,13 @@ public class news_dao implements news_dao_interface{
 
 	@Override
 	public List<Map<String, Object>> loadNews() {
-		String sql = "SELECT title,time,content,author,img FROM news";		
+		String sql = "SELECT title,img,time,content,author FROM news";	
 		return simplejdbc.queryForList(sql);
 	}
 
 	@Override
 	public List<Map<String, Object>> changePage(int page) {
-		String sql = "SELECT title,time,content,author,img FROM news LIMIT "+((page-1)*9)+",9";
+		String sql = "SELECT title,time,img,content,author FROM news LIMIT "+((page-1)*9)+",9";
 		return simplejdbc.queryForList(sql);
 	}
 

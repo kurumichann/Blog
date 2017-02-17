@@ -12,7 +12,7 @@ public class News_service {
 	@Autowired
 	news_dao dao;
 	
-	public List<Map<String, Object>> loadNews() {		
+	public List<Map<String, Object>> loadNews() {
 		return dao.loadNews();
 	}
 	

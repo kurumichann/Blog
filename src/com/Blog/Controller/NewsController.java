@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.Blog.Crawler.News;
 import com.Blog.Service.News_service;
 
-import sun.print.resources.serviceui;
-
 @Controller
 public class NewsController {
 	
@@ -24,14 +22,14 @@ public class NewsController {
 	public String showNews(Map<String,Object> newsmodel  , Map<String,Object> newmodel){
 		newsmodel.put("datas",service.loadNews()); 
 		newmodel.put("news", new News());
-		return "news";
+		return "index";
 	}
 	
 	@RequestMapping({"news/page={page}"})
 	public String showNewsbyPage(@PathVariable int page, Map<String,Object> newsmodel  , Map<String,Object> newmodel){
 		newsmodel.put("datas",service.loadNewsbyPage(page)); 
 		newmodel.put("news", new News());
-		return "news";
+		return "index";
 	}
 	
 	@RequestMapping(value = { "news/news_page=", "news_page=" })

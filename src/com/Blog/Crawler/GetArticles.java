@@ -1,12 +1,9 @@
 package com.Blog.Crawler;
 
-import java.io.IOException;
-import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class GetArticles {
@@ -46,7 +43,7 @@ public class GetArticles {
 		//content
 		article.setContent(parser.select("div.entry:gt(1)").text().replace(article.getAuthor(), "")
 				 .substring(0, 50).trim());
-		
+		article.setImg(null);
 		System.out.println(counter+" content: "+article.getContent());
 		articleArray.add(article);
 	}

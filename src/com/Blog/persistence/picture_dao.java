@@ -5,20 +5,20 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 public class picture_dao implements Picture_interface{
 	
-<<<<<<< .merge_file_YqTT9f
+
 	JdbcTemplate jdbcTemplate = null;
 	@Autowired
-	public void setjdbcTemplate(JdbcTemplate jdbcTemplate)
-=======
-	JdbcTemplate simplejdbc = null;
+	public void setjdbcTemplate(JdbcTemplate jdbcTemplate){
+		JdbcTemplate simplejdbc = null;
+	}
+
+	
 	@Autowired
 	public void setSimplejdbc(JdbcTemplate simplejdbc)
->>>>>>> .merge_file_Mbk3fV
+
 	{
 		this.jdbcTemplate = jdbcTemplate;
 	}
@@ -34,11 +34,9 @@ public class picture_dao implements Picture_interface{
 	public void setPicture(Picture picture) {
 		// TODO Auto-generated method stub
 		String sql1 = "SELECT MAX(id) FROM picture";
-<<<<<<< .merge_file_YqTT9f
-		int maxId = jdbcTemplate.queryForObject(sql1, Integer.class)+1; 
-=======
-		int maxId = simplejdbc.queryForObject(sql1, Integer.class)+1; 
->>>>>>> .merge_file_Mbk3fV
+
+		int maxId = jdbcTemplate.queryForObject(sql1, Integer.class)+1;
+
 		String sql2 = "insert into picture set img = ?,content = ?,user = ?,createTime = ?,good = ?,id = ?";
 		jdbcTemplate.update(sql2, picture.getImg(),picture.getContent(),picture.getUser(),
 				picture.getCreateTime(),picture.getGood(),maxId);
@@ -56,10 +54,7 @@ public class picture_dao implements Picture_interface{
 		String sql2 = "update picture set good = good+1 where id = ?";
 		jdbcTemplate.update(sql2,imageName);
 		String sql3 = "select good from picture where id = ?";
-<<<<<<< .merge_file_YqTT9f
+
 		return jdbcTemplate.queryForObject(sql3, Integer.class, imageName);
-=======
-		return simplejdbc.queryForObject(sql3, Integer.class, imageName);
->>>>>>> .merge_file_Mbk3fV
 	}
 }

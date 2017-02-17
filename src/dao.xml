@@ -19,7 +19,6 @@
      
      <context:annotation-config></context:annotation-config>
      <tx:annotation-driven/> 
-<!-- c3p0 -->
 <!-- <bean id = "datasource"
             class = "com.mchange.v2.c3p0.ComboPooledDataSource">
             <property name="driverClass" value  = "com.mysql.jdbc.Driver"/>
