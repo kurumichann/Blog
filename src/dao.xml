@@ -34,8 +34,8 @@
 	        <property name="idleConnectionTestPeriod"><value>3</value></property>
 	        <property name="breakAfterAcquireFailure"><value>true</value></property>
      </bean> -->
-     <!-- for local env -->
-     <bean id = "datasource"
+     <!-- c3p0 -->
+      <bean id = "datasource"
             class = "com.mchange.v2.c3p0.ComboPooledDataSource">
             <property name="driverClass" value  = "com.mysql.jdbc.Driver"/>
             <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test"></property>
@@ -49,7 +49,7 @@
 	        <property name="initialPoolSize"><value>10</value></property>
 	        <property name="idleConnectionTestPeriod"><value>3</value></property>
 	        <property name="breakAfterAcquireFailure"><value>true</value></property>
-     </bean>
+     </bean> 
 	<!--         for dbcp
 	 <bean id = "datasource"
             class = "">
@@ -114,10 +114,23 @@
       <bean id ="News"
             class = "com.Blog.Crawler.News">
       </bean>
-      <bean id ="news_dao"
+<!--       <bean id ="news_dao"
             class = "com.Blog.persistence.news_dao">
-      </bean>
+      </bean> -->
       <bean id ="News_service"
             class = "com.Blog.Service.News_service">
       </bean>
+      
+      <!-- Mybatis -->
+      <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+			<property name="datasource" ref="datasource" />
+			<property name="configLocation" value="/WEB-INF/mybatis-config.xml" />
+			<!-- 自动配置别名 --><!-- 
+			<property name="typeAliasesPackage" value="com.xxx.dto" /> -->
+	  </bean>
+	  <!--创建dao bean（只需提供接口不需提供实现类 ）-->
+	  <bean id="news_dao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+			<property name="mapperInterface" value="com.Blog.persistence.news_dao_interface" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	  </bean>
 </beans>

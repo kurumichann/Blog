@@ -12,4 +12,5 @@ public class BeanConfig {
 	public Blog_dao blog_dao(){
 		return new Blog_dao();
 	}
+
 }

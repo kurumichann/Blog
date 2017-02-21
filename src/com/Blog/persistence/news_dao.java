@@ -34,13 +34,11 @@ public class news_dao implements news_dao_interface{
 
 	@Override
 	public void newNews(article article) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void deleteNews(String authorName, String title) {
-		// TODO Auto-generated method stub
 		
 	}
 
