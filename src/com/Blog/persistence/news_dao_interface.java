@@ -8,7 +8,7 @@ import com.Blog.Crawler.News;
 public interface news_dao_interface {
 	public int getTotalCount();
     public List<Map<String, Object>> loadNews(); 
-    public List<Map<String, Object>> changePage(int page);
+    public List<Map<String, Object>> loadNews(int page); 
     public void newNews(article article);
     public void deleteNews(String authorName,String title);
     public List<Map<String, Object>> searchNews(String keyword);

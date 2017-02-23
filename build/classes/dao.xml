@@ -19,16 +19,48 @@
      
      <context:annotation-config></context:annotation-config>
      <tx:annotation-driven/> 
-     <bean id = "datasource"
-            class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
+<!-- <bean id = "datasource"
+            class = "com.mchange.v2.c3p0.ComboPooledDataSource">
+            <property name="driverClass" value  = "com.mysql.jdbc.Driver"/>
+            <property name="jdbcUrl" value="jdbc:mysql://27.122.57.145:3306/blog"></property>
+            <property name="user" value="root"></property>
+            <property name="password" value="wujijilzx"></property>
+            <property name="minPoolSize"><value>10</value></property>
+	        <property name="maxPoolSize"><value>30</value></property>
+	        <property name="maxIdleTime"><value>1800</value></property>
+	        <property name="acquireIncrement"><value>2</value></property>
+	        <property name="maxStatements"><value>0</value></property>
+	        <property name="initialPoolSize"><value>10</value></property>
+	        <property name="idleConnectionTestPeriod"><value>3</value></property>
+	        <property name="breakAfterAcquireFailure"><value>true</value></property>
+     </bean> -->
+     <!-- c3p0 -->
+<!--       <bean id = "datasource"
+            class = "com.mchange.v2.c3p0.ComboPooledDataSource">
+            <property name="driverClass" value  = "com.mysql.jdbc.Driver"/>
+            <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test"></property>
+            <property name="user" value="root"></property>
+            <property name="password" value="123"></property>
+            <property name="minPoolSize"><value>10</value></property>
+	        <property name="maxPoolSize"><value>30</value></property>
+	        <property name="maxIdleTime"><value>1800</value></property>
+	        <property name="acquireIncrement"><value>2</value></property>
+	        <property name="maxStatements"><value>0</value></property>
+	        <property name="initialPoolSize"><value>10</value></property>
+	        <property name="idleConnectionTestPeriod"><value>3</value></property>
+	        <property name="breakAfterAcquireFailure"><value>true</value></property>
+     </bean>  -->
+       <!--   for dbcp -->
+	 <bean id = "dataSource"
+            class = "">
             <property name="driverClassName" value  = "com.mysql.jdbc.Driver"/>
-            <property name="url" value="jdbc:mysql://127.0.0.1:3306/test"></property>
+            <property name="url" value="jdbc:mysql://localhost:3306/test"></property>
             <property name="username" value="root"></property>
             <property name="password" value="123"></property>
      </bean>
      <bean id = "jdbcTemplate"
-            class = "org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
-           <constructor-arg ref = "datasource"></constructor-arg>
+            class = "org.springframework.jdbc.core.JdbcTemplate">
+           <constructor-arg ref = "dataSource"></constructor-arg>
       </bean>     
       <bean id = "GetURLs"
             class = "com.Blog.Crawler.GetURLs">
@@ -38,9 +70,9 @@
       </bean>
       <bean id = "comment"
             class = "com.Blog.persistence.comment"></bean>
-      <bean id  = "BlogDao"
+       <!-- <bean id  = "BlogDao"
             class = "com.Blog.persistence.Blog_dao">
-      </bean>
+      </bean> -->
       <bean id = "blog_service"
            class = "com.Blog.Service.Blog_service">
      </bean>
@@ -64,7 +96,7 @@
       </bean>
       <bean id = "transactionManager"	 
             class  = "org.springframework.jdbc.datasource.DataSourceTransactionManager">
-            <property name="dataSource" ref = "datasource"></property>
+            <property name="dataSource" ref = "dataSource"></property>
       </bean>
       <bean id = "ImgCompress"
             class = "com.Blog.imgCompress.imgCompress">
@@ -81,11 +113,22 @@
       <bean id ="News"
             class = "com.Blog.Crawler.News">
       </bean>
-      <bean id ="news_dao"
+<!--       <bean id ="news_dao"
             class = "com.Blog.persistence.news_dao">
-      </bean>
+      </bean> -->
       <bean id ="News_service"
             class = "com.Blog.Service.News_service">
       </bean>
-            
+      <!-- Mybatis -->
+      <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+			<property name="dataSource" ref="dataSource" />
+			<property name="configLocation" value="/WEB-INF/mybatis-config.xml" />
+			<!-- 自动配置别名 --><!-- 
+			<property name="typeAliasesPackage" value="com.xxx.dto" /> -->
+	  </bean>
+	  <!--创建dao bean（只需提供接口不需提供实现类 ）-->
+	  <bean id="news_dao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+			<property name="mapperInterface" value="com.Blog.persistence.news_dao_interface" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	  </bean>
 </beans>

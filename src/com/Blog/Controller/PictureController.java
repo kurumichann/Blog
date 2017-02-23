@@ -1,6 +1,5 @@
 package com.Blog.Controller;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,7 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.Blog.Service.Picture_service;
 import com.Blog.imgCompress.imgCompress;
-import com.Blog.persistence.Picture;
+import com.Blog.persistence.picture;
 
 @Controller
 @RequestMapping("/picture")
@@ -40,7 +39,7 @@ public class PictureController {
 	public String showPicture(Map<String, Object> picturemodel,Map<String, Object> formModel)
 	{
 	    picturemodel.put("pictures", pictureService.getInfo());
-	    formModel.put("picture", new Picture());
+	    formModel.put("picture", new picture());
 	    return "picture";
 		
 	}
@@ -48,14 +47,14 @@ public class PictureController {
     @RequestMapping(value = "/good_{imageid}",method = RequestMethod.GET)
     @ResponseBody
     @PreAuthorize("hasAnyRole({'manager','general'})")
-	public int likePicture(@PathVariable String imageid)
+	public int likePicture(@PathVariable int imageid)
 	{
-	    return  pictureService.likePicture(session.getAttribute("authorName").toString(),imageid);
+	    return  pictureService.likePicture(imageid,session.getAttribute("authorName").toString());
 		
 	}
      
     @RequestMapping(method = RequestMethod.POST)
-	public String savePicture(Picture picture,@RequestParam(value="picture") MultipartFile img,
+	public String savePicture(picture picture,@RequestParam(value="picture") MultipartFile img,
 			Map<String, Object> picturemodel,Map<String, Object> formModel)
 	{
 		 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
@@ -79,7 +78,7 @@ public class PictureController {
 		       }
 		    pictureService.AddPicture(picture);
 		    picturemodel.put("pictures", pictureService.getInfo());
-		    formModel.put("picture", new Picture());
+		    formModel.put("picture", new picture());
 		return "redirect:/picture";
 		
 	}

@@ -1,14 +1,12 @@
 package com.Blog.persistence;
 
-import java.util.ArrayList;
-
 public class music {
 	
 	private String title;
 	private int id;
 	private String createtime;
 	private String author;
-	private ArrayList<String> src;
+	private String src;
 	private String comment;
 	private String img;
 	private String description;
@@ -25,7 +23,7 @@ public class music {
 	public void setImg(String pic) {
 		this.img = pic;
 	}
-	public void setSrc(ArrayList<String> src) {
+	public void setSrc(String src) {
 		this.src = src;
 	}
 	public String getTitle() {
@@ -52,7 +50,7 @@ public class music {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public ArrayList<String> getSrc() {
+	public String getSrc() {
 		return src;
 	}
 	public String getComment() {

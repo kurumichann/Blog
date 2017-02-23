@@ -1,6 +1,6 @@
 package com.Blog.persistence;
 
-public class Picture {
+public class picture {
 		
 	private String img = null;
 	private  String createTime = null;

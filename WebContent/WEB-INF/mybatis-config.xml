@@ -4,6 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">  
 <configuration>  
 	<typeAliases>
-	  <typeAlias alias="News" type="com.Blog.persistence.News"/>
+	  <typeAlias alias="News" type="com.Blog.persistence.news"/>
+	  <typeAlias alias="Article" type="com.Blog.persistence.article"/>
+	  <typeAlias alias="Comment" type="com.Blog.persistence.comment"/>
+	  <typeAlias alias="Picture" type="com.Blog.persistence.picture"/>
+	  <typeAlias alias="Music" type="com.Blog.persistence.music"/>
 	</typeAliases>
 </configuration>

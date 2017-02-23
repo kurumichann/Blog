@@ -86,12 +86,12 @@
            class = "com.Blog.Service.User_service" >
       </bean>
       <bean id = "picture"
-      	class = "com.Blog.persistence.Picture">
+      	class = "com.Blog.persistence.picture">
       </bean>
-      <bean id = "pictureDao"
+<!--       <bean id = "pictureDao"
             class = "com.Blog.persistence.picture_dao">
             
-      </bean>
+      </bean> -->
       <bean id = "Picture_service"
               class = "com.Blog.Service.Picture_service">             
       </bean>
@@ -105,9 +105,9 @@
       <bean id = "music"
             class = "com.Blog.persistence.music">
       </bean>
-      <bean id = "music_dao"
+<!--       <bean id = "music_dao"
             class = "com.Blog.persistence.music_dao">
-      </bean>
+      </bean> -->
       <bean id = "Music_service"
             class = "com.Blog.Service.Music_service">
       </bean>
@@ -123,14 +123,30 @@
       
       <!-- Mybatis -->
       <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-			<property name="datasource" ref="datasource" />
+			<property name="dataSource" ref="datasource" />
 			<property name="configLocation" value="/WEB-INF/mybatis-config.xml" />
+			<property name="mapperLocations" value="classpath:com/Blog/persistence/*.xml" />
 			<!-- 自动配置别名 --><!-- 
 			<property name="typeAliasesPackage" value="com.xxx.dto" /> -->
 	  </bean>
 	  <!--创建dao bean（只需提供接口不需提供实现类 ）-->
-	  <bean id="news_dao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	  <bean id="news_dao_interface" class="org.mybatis.spring.mapper.MapperFactoryBean">
 			<property name="mapperInterface" value="com.Blog.persistence.news_dao_interface" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	  </bean>
+	  
+	  <bean id="blog_dao_interface" class="org.mybatis.spring.mapper.MapperFactoryBean">
+			<property name="mapperInterface" value="com.Blog.persistence.blog_dao_interface" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	  </bean>
+	  
+	  <bean id="picture_dao_interface" class="org.mybatis.spring.mapper.MapperFactoryBean">
+			<property name="mapperInterface" value="com.Blog.persistence.picture_dao_interface" />
+			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	  </bean>
+	  
+	  <bean id="music_dao_interface" class="org.mybatis.spring.mapper.MapperFactoryBean">
+			<property name="mapperInterface" value="com.Blog.persistence.music_dao_interface" />
 			<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	  </bean>
 </beans>

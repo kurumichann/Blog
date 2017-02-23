@@ -7,5 +7,8 @@ public interface music_dao_interface{
     
 	
 	 public List<Map<String, Object>> getMusic();
-	 public void saveMusic(music music);	 
+	 public int genertateKey();	 
+	 public void addMusic(music music);
+	 public void addMusicSrc(music music);
+	 public void addMusicImg(music music);
 }

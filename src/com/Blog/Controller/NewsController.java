@@ -21,13 +21,13 @@ public class NewsController {
 	@RequestMapping({"news"})
 	public String showNews(Map<String,Object> newsmodel  , Map<String,Object> newmodel){
 		newsmodel.put("datas",service.loadNews()); 
-		newmodel.put("news", new News());
+		newmodel.put("article", new News());
 		return "index";
 	}
 	
 	@RequestMapping({"news/page={page}"})
 	public String showNewsbyPage(@PathVariable int page, Map<String,Object> newsmodel  , Map<String,Object> newmodel){
-		newsmodel.put("datas",service.loadNewsbyPage(page)); 
+		newsmodel.put("datas",service.loadNews((page-1)*9)); 
 		newmodel.put("news", new News());
 		return "index";
 	}

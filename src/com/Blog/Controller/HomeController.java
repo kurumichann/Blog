@@ -2,6 +2,8 @@ package com.Blog.Controller;
 
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -29,6 +31,7 @@ public class HomeController {
    public static final int DEFUALT_BLOG_PER_PAGE = 25;
    private Blog_service blog_service ;
    private imgCompress imgcompress;
+   SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
    @Autowired
    public HomeController(Blog_service blog_service,imgCompress imgcompress)
    { 
@@ -71,6 +74,7 @@ public class HomeController {
 	   System.out.println("addNewArticleFromform");
 	   article.setImg(session.getAttribute("authorName")+"-"+article.getTitle()+"."+image.getContentType().subSequence(6, image.getContentType().length()));
 	   article.setAuthor(session.getAttribute("authorName").toString());
+	   article.setTime(format.format(new Date()));
 	   if(image.getContentType().subSequence(6, image.getContentType().length()).equals("ation/octet-stream"))
 	   {
 		   article.setImg("null");
@@ -78,17 +82,13 @@ public class HomeController {
 	   }else
 	   {
 		   try{
-/*		   File file = new File("/eclipse/workspace/Blog/WebContent/resource/article_img/"+article.getImg());
-		   System.out.println(file.getAbsolutePath());
-		   FileUtils.writeByteArrayToFile(file,image.getBytes());*/
-		   imgcompress.setImg(image);
-		   System.out.println(getClass().getResource("/").getFile().toString().replace("WEB-INF/classes/", "resource/article_img"));
-		   imgcompress.resizeFix(500,400, getClass().getResource("/").getFile().toString().replace("WEB-INF/classes/", "resource/article_img"), article.getImg());
-	     }catch(IOException e)
-	     {
-		  e.printStackTrace();
-	     }
-	     /**end upload img**/
+			   imgcompress.setImg(image);
+			   System.out.println(getClass().getResource("/").getFile().toString().replace("WEB-INF/classes/", "resource/article_img"));
+			   imgcompress.resizeFix(500,400, getClass().getResource("/").getFile().toString().replace("WEB-INF/classes/", "resource/article_img"), article.getImg());
+		     }catch(IOException e)
+		     {
+			  e.printStackTrace();
+		     }
 	   }
 	   blog_service.createArticle(article);
 	   limitedmodel.put("datas",blog_service.getLatestArticle());
@@ -100,13 +100,13 @@ public class HomeController {
    public String deleteArticleFromPage(@PathVariable String id,@PathVariable String img,Map<String,Object> limitedmodel
 		   ,Map<String,Object> articlemodel)
    {
-	   blog_service.deleteArticle(id , img);
+	   blog_service.deleteArticle(id,img);
 	   return "redirect:/index";
    }   
    
    @RequestMapping(value={"searcharticle={keyword}","index/searcharticle={keyword}"})
    @ResponseBody
-   public List<Map<String,Object>> searchArticle(@PathVariable String keyword)
+   public List<Object> searchArticle(@PathVariable String keyword)
    {
 	   System.out.println("search for article "+keyword);
 	   return blog_service.searchArticle(keyword);
@@ -114,7 +114,7 @@ public class HomeController {
    
    @RequestMapping(value={"article/getcomment_id={keyword}","index/article/getcomment_id={keyword}"})
    @ResponseBody
-   public List<Map<String,Object>> getComments(@PathVariable int keyword)
+   public List<Object> getComments(@PathVariable int keyword)
    { 	  
 	   return  blog_service.getComment(keyword) ;
    }  
@@ -135,20 +135,20 @@ public class HomeController {
    @RequestMapping(value = {"index/topThreeArticle",
 		   "topThreeArticle","index/article/topThreeArticle","article/topThreeArticle"})
    @ResponseBody
-   public List<Map<String,Object>> top3(){	   
-	   System.out.println(blog_service.getTop3());
+   public List<Object> top3(){	   
 	   return blog_service.getTop3();
    }
    
    @RequestMapping(value = {"index/article/comment={comment}&&id={id}","article/comment={comment}&&id={id}"})
    @ResponseBody
    @PreAuthorize("hasAnyRole({'manager','general'})")
-   public List<Map<String,Object>> Setcomment(@PathVariable String comment , @PathVariable int id){	  
+   public List<Object> Setcomment(@PathVariable String comment , @PathVariable int id){	  
 	   comment minrui = new comment();
 	   minrui.setAuthor(session.getAttribute("authorName").toString());
 	   minrui.setId(id);
 	   minrui.setComment(comment);
-	   return blog_service.Comment(minrui);
+	   minrui.setTime(format.format(new Date()));
+	   return blog_service.Comments(minrui);
    }
 
    

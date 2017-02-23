@@ -68,7 +68,7 @@ public class MusicController {
  	   service.saveMusic(music);
    	   musics.put("musics", service.getInfo());
    	   musicmodel.put("music", new music());
- 	   return "redirect:/home";
+ 	   return "redirect:/music";
     }
 
 }

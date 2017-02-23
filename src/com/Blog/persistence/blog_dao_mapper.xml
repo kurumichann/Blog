@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Blog.persistence.blog_dao_interface">
+<!--<cache type="PERPETUAL" eviction="LRU" flushInterval="60000"
+		size="512" readOnly="true" /> -->
+	<sql id="article_columns"> title,content,img,author,time,id </sql>
+	
+	<sql id="comment_columns">author,id,time,comment</sql>
+	
+	<!-- SELECT -->
+	
+	<select id="loadHomeArticle"  resultType="Article"
+		useCache="true" parameterType="String">
+		select <include refid="article_columns"></include> from article
+		<choose>
+			<when test="sort=null">
+				order by time #{sort} limit #{page},9
+			</when>
+			<otherwise>
+				order by time desc limit 0,9
+			</otherwise>
+		</choose> 
+	</select>
+	
+	<select id="getTotalCount" resultType="int">
+		select count('id') from article
+	</select>
+	
+	<select id="searchArticle" resultType="Article">
+		select <include refid="article_columns"></include> from article  where title = #{title} order by time desc
+	</select>
+	
+	<select id="searchArticleById" resultType="Article">
+		select <include refid="article_columns"></include> from article where id = #{id}
+	</select>
+	
+	
+	<select id="getTop3" resultType="Article">
+		select <include refid="article_columns"></include> from article order by time desc limit 0,3
+	</select>
+	
+	<select id="getComments" resultType="Comment">
+		select <include refid="comment_columns"></include> from article_comment where id = #{id}
+	</select>
+	
+	<!-- INSERT -->
+	
+	<insert id="newArticle" parameterType="Article" useGeneratedKeys="true" keyProperty="id">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			select max(id) from article
+		</selectKey>
+		insert into article(<include refid="article_columns"></include>) values(#{title},#{content},#{img},#{author},#{time},#{id}+1)
+	</insert>
+	
+	<insert id="Comments" parameterType="Comment">
+		insert into article_comment(<include refid="comment_columns"></include>)
+		 values(#{author},#{id},#{time},#{comment})
+	</insert>
+	
+	<delete id="deleteArticle">
+		delete  from article where id = #{_parameter}
+	</delete>
+	
+	<delete id="deleteComment">
+		delete  from article_comment where id = #{_parameter}
+	</delete>
+	
+</mapper>

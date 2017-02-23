@@ -1,7 +1,22 @@
 package com.Blog.persistence;
 
-public class News {
+public class news {
 	
+
+	
+	private String title = null;
+	private String img = null;
+	private String time = null;
+	private String content = null;
+	private String author = null;
+	private String id = null;
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -32,12 +47,6 @@ public class News {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
-	private String title = null;
-	private String img = null;
-	private String time = null;
-	private String content = null;
-	private String author = null;
 	
 	
 }

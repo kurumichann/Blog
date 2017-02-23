@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Blog.persistence.picture_dao_interface">
+<!--<cache type="PERPETUAL" eviction="LRU" flushInterval="60000"
+		size="512" readOnly="true" /> -->
+	<sql id="picture_columns">img,createTime,user,content,good,id</sql>
+	
+	<select id="getPicture"  resultType="Picture"
+		useCache="true">
+		select <include refid="picture_columns"></include> from picture
+	</select>
+	
+	<select id="getGood"  resultType="int">
+		select good from picture where id = #{id}
+	</select>
+	
+	<insert id="likePicture" >
+		insert into pic_good(id,author) values(#{0},#{1})
+	</insert>
+	
+	<insert id="setGood" >
+		update picture set good = good+1 where id = #{id}
+	</insert>
+	
+	<insert id="addPicture" parameterType="Picture">
+		<selectKey keyProperty="id" resultType="int" order="BEFORE">
+			select max(id) from picture
+		</selectKey>
+		insert into picture(<include refid="picture_columns"></include>) 
+		values(#{img},#{createTime},#{user},#{content},#{good},#{id}+1)
+	</insert>
+	
+</mapper>
