@@ -6,7 +6,7 @@
 	border-radius: 5px;
 	margin: 5px 0px 5px 50px;
 	width:150px;
-	background-color: transparent;
+	background-color: rgba(187,176,176,0.5);
 	border: 1px;
 	border-style: solid;
 }

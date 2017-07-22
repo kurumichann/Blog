@@ -1,7 +1,6 @@
 package com.Blog.Controller;
 
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -58,7 +57,6 @@ public class HomeController {
 	   
 	   if(!(sort.equals("asc")||sort.equals("desc")))
 		   return "index";
-	   System.out.println("Change Page to "+pagenumber);
 	   limitedmodel.put("datas",blog_service.turnTopage(pagenumber,sort));
 	   articlemodel.put("article", new article());
 	   return "index";
@@ -71,25 +69,27 @@ public class HomeController {
 		   @RequestParam(value="arti_img",required=false) MultipartFile image)
    {
 
-	   System.out.println("addNewArticleFromform");
-	   article.setImg(session.getAttribute("authorName")+"-"+article.getTitle()+"."+image.getContentType().subSequence(6, image.getContentType().length()));
+	   //article.setImg(session.getAttribute("authorName")+"-"+article.getTitle()+"."+image.getContentType().subSequence(6, image.getContentType().length()));
 	   article.setAuthor(session.getAttribute("authorName").toString());
 	   article.setTime(format.format(new Date()));
-	   if(image.getContentType().subSequence(6, image.getContentType().length()).equals("ation/octet-stream"))
-	   {
-		   article.setImg("null");
- 
-	   }else
-	   {
-		   try{
-			   imgcompress.setImg(image);
-			   System.out.println(getClass().getResource("/").getFile().toString().replace("WEB-INF/classes/", "resource/article_img"));
-			   imgcompress.resizeFix(500,400, getClass().getResource("/").getFile().toString().replace("WEB-INF/classes/", "resource/article_img"), article.getImg());
-		     }catch(IOException e)
-		     {
-			  e.printStackTrace();
-		     }
-	   }
+	   article.setImg(null);
+	   article.setContent(convertToHtml(article.getContent()));
+	   System.out.print(article.getContent());
+//	   if(image.getContentType().subSequence(6, image.getContentType().length()).equals("ation/octet-stream"))
+//	   {
+//		   article.setImg("null");
+// 
+//	   }else
+//	   {
+//		   try{
+//			   imgcompress.setImg(image);
+//			   System.out.println(getClass().getResource("/").getFile().toString().replace("WEB-INF/classes/", "resource/article_img"));
+//			   imgcompress.resizeFix(500,400, getClass().getResource("/").getFile().toString().replace("WEB-INF/classes/", "resource/article_img"), article.getImg());
+//		     }catch(IOException e)
+//		     {
+//			  e.printStackTrace();
+//		     }
+//	   }
 	   blog_service.createArticle(article);
 	   limitedmodel.put("datas",blog_service.getLatestArticle());
 	   articlemodel.put("article", new article());
@@ -151,6 +151,8 @@ public class HomeController {
 	   return blog_service.Comments(minrui);
    }
 
-   
+   public String convertToHtml(String txt){
+	   return txt.replaceAll("\n", "<br/>").replaceAll(" ", "&nbsp;");
+   }
    
 }

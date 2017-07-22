@@ -3,7 +3,7 @@
 <mapper namespace="com.Blog.persistence.picture_dao_interface">
 <!--<cache type="PERPETUAL" eviction="LRU" flushInterval="60000"
 		size="512" readOnly="true" /> -->
-	<sql id="picture_columns">img,createTime,user,content,good,id</sql>
+	<sql id="picture_columns">img,createTime,user,content,good</sql>
 	
 	<select id="getPicture"  resultType="Picture"
 		useCache="true">
@@ -22,12 +22,9 @@
 		update picture set good = good+1 where id = #{id}
 	</insert>
 	
-	<insert id="addPicture" parameterType="Picture">
-		<selectKey keyProperty="id" resultType="int" order="BEFORE">
-			select max(id) from picture
-		</selectKey>
+	<insert id="addPicture" parameterType="Picture" useGeneratedKeys="true" keyProperty="id">
 		insert into picture(<include refid="picture_columns"></include>) 
-		values(#{img},#{createTime},#{user},#{content},#{good},#{id}+1)
+		values(#{img},#{createTime},#{user},#{content},#{good})
 	</insert>
 	
 </mapper>

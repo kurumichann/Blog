@@ -59,7 +59,7 @@ function generateArticle(data){
            var article = 
             "<article class='article'>"+"<a class='arti_h'>"+data.title+"</a>"+"<div class='arti_info'>"+                           
               "由<h>"+data.author+"在"+getLocalTime(data.time)+"</h>"+
-             "<div class='arti_img'>"+"<img src='resource/article_img/"+data.img+"'/><h1>"+data.content+"</h1></div><footer><hr></hr></footer></article>";
+             "<div class='arti_img'>"+"<h1>"+data.content+"</h1></div><footer><hr></hr></footer></article>";
            }else{
               var article = 
             "<article class='article'>"+"<h2 class='arti_h'>"+data.title+"</h2>"+"<div class='arti_info'>"+                           

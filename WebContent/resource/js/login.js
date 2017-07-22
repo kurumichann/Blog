@@ -22,7 +22,7 @@ $(function(){
          })  ;
          $(document.body).css("overflow","hidden");
        
-         var logindialog = "<div id='modaldialog'>"+"<div id = 'login-register-header'><h>login-register</h>"+
+         var logindialog = "<div id='modaldialog'>"+"<div id = 'login-register-header'>"+
             "<div id = 'x'></div></div>"+
             "<div id = 'mainform'>"+
             "<form method = 'post' action='/Blog/login'>"+
@@ -70,6 +70,7 @@ $(function(){
                 "margin":"-5px 0px -5px 100px",
                 "color":"#aa001a",
              })
+                 
           //获得焦点动画，失去焦点ajax检查用户名存在性
            checkUser();
            $("#register")
@@ -105,18 +106,16 @@ $(function(){
            $("#modaldialog input[type=radio]").css({
                 "width":"13px",
             })
+           $("username").text("");
+           $("password").text("");
            $("#modaldialog input[type!=radio]")
             .focus(function(){
-                $(this).animate({width:"200px"},500);
                 $("#modaldialog span").text("");    
             })
             .blur(function(){
-                console.log("1231");
-                $(this).animate({width:"150px"},500);
                  if($("#username input").val()!= ""){
                     $.get("username="+$("#username input").val(), 
-                       function(data,textStatus){ //callback          
-                       console.log(data)             
+                       function(data,textStatus){ //callback     
                           if(data == 0&&$("#mainform input").length==2){
                               $("#modaldialog span").text("用户名不存在");
                           }

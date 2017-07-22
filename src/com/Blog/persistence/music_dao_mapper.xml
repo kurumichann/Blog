@@ -3,29 +3,20 @@
 <mapper namespace="com.Blog.persistence.music_dao_interface">
 <!--<cache type="PERPETUAL" eviction="LRU" flushInterval="60000"
 		size="512" readOnly="true" /> -->
-	<sql id="music_columns"> title,id,createtime,author,src,comment,img,description </sql>
+	<sql id="music_columns"> title,createtime,author,src,comment,img,description </sql>
 	
 	<select id="getMusic"  resultType="Music"
 		useCache="true">
-		select * from music inner join music_img on music.id = music_img.id 
-		inner join music_src on music.id = music_src.id
+		select * from music
 	</select>
 
 	<select id="genertateKey" resultType="int">
 		select max(id) from music
 	</select>
 	
-	<insert id="addMusic" parameterType="Music">
-		insert into music(id,title,author,createtime,description) 
-		values(#{id},#{title},#{author},#{createtime},#{description})
-	</insert>
-	
-	<insert id="addMusicSrc" parameterType="Music">
-		insert into music_src set id = #{id},src = #{src}
-	</insert>
-	
-	<insert id="addMusicImg" parameterType="Music">
-		insert into music_img set id = #{id},img = #{img}
+	<insert id="addMusic" parameterType="Music" useGeneratedKeys="true" keyProperty="id">
+		insert into music(title,author,createtime,description,src,img) 
+		values(#{title},#{author},#{createtime},#{description},#{src},#{img})
 	</insert>
 	
 </mapper>

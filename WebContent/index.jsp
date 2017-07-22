@@ -10,7 +10,7 @@
 <title>KURUMI NO jiken </title>
 </head>
 
-<body background="img/background.png">
+<body >
 	<script type="text/javascript" src = "js/sort.js"></script>
 	<script type="text/javascript" src = "js/li1_click.js"></script>
 	<script type="text/javascript" src = "js/li2_click.js"></script>

@@ -76,20 +76,12 @@
 			<br>
 		<div id="parameter">
 				<div class="obj_name">
-					<div class="title">
-					</div>
 					<div class="titledown">
-						<div id="impression">
-							<img src="resource/img/code.png">
-						</div>
 						<br><span>THX</span>
 					</div>
 				</div>
 				<br> <br>
 				<div class="obj_name">
-					<div class="title">
-						<h>&nbsp;最新文章</h>
-					</div>
 					<div class="titledown">
 						<div id="latestarticle">
 							<ul>
@@ -100,9 +92,6 @@
 				</div>
 				<br> <br>
 				<div class="obj_name">
-					<div class="title">
-						<h>&nbsp;最新图片</h>
-					</div>
 				</div>
 				<br>			
 			</div>
@@ -121,13 +110,13 @@
 						</ul>
 					</security:authorize>
 				</div>
-				<div id="musics">
+				<div id="articles">
 					<c:forEach var="music" items="${musics}" end="8">
 						<article class="article">
-						<a class="arti_h">${music.title}</a>
 						<div class="arti_info">
 							<span>由${music.author}在${music.createtime}</span>
 						</div>
+						<a class="arti_h">${music.title}</a>
 						</header>
 						<div class="arti_img">
 							<img src="/Blog/resource/music_img/${music.img}">

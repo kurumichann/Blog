@@ -72,20 +72,12 @@
 			<br>
 		<div id="parameter">
 				<div class="obj_name">
-					<div class="title">
-					</div>
 					<div class="titledown">
-						<div id="impression">
-							<img src="resource/img/code.png">
-						</div>
-						<br><span>THX</span>
+						<br><span>//TODU</span>
 					</div>
 				</div>
 				<br> <br>
 				<div class="obj_name">
-					<div class="title">
-						<h>&nbsp;最新文章</h>
-					</div>
 					<div class="titledown">
 						<div id="latestarticle">
 							<ul>
@@ -96,9 +88,6 @@
 				</div>
 				<br> <br>
 				<div class="obj_name">
-					<div class="title">
-						<h>&nbsp;最新图片</h>
-					</div>
 					<div class="titledown">
 					  <div id="picture_form">
 						<security:authorize

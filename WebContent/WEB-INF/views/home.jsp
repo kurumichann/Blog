@@ -159,8 +159,8 @@
 							enctype="multipart/form-data">
 							<span>标题：</span>
 							<sf:input path="title" type="text" id="arti_title" />
-							<span>图片</span>
-							<input type="file" id="arti_img" name="arti_img" />
+							<!-- <span>图片</span>
+							<input type="file" id="arti_img" name="arti_img" /> -->
 							<br />
 							<br />
 							<span>内容：</span>

@@ -3,15 +3,19 @@ li{
 	cursor:pointer; 
 }
 .article{
-    width: 671px;
-	margin-right: 60px;
+	background:white;
+    width: 744px;
+	margin-left: 30px;
 	margin-top:20px;
+	padding-left: 20px;
+	box-shadow:1px 2px 3px #ddd;
 	
 }
 .article a{
-	color: white;
+	color: #555;
     width: 604px;
     font-size:25px;
+    font-weight:bold;
 }
 .article a:hover{
 	color: #4399ee;
@@ -27,8 +31,7 @@ li{
 }
 #articles{
     float: right;
-    margin-top: 25px;
-    width: 731px;
+    width: 804px;
 #edit{
 	float: right;
 	margin-right: 20px;

@@ -21,7 +21,7 @@
 	          <security:csrf disabled="true" />
 	   <!-- <security:intercept-url pattern="/login2" requires-channel="https" /> -->
 	</security:http>
-      <security:authentication-manager alias="authenticationManager">
+       <security:authentication-manager alias="authenticationManager">
        <security:authentication-provider>
         <security:jdbc-user-service data-source-ref="datasource" 
            users-by-username-query="select username,password,status from user where username = ?"
@@ -29,11 +29,11 @@
        </security:authentication-provider>
      </security:authentication-manager>
 <!-- c3p0 -->
-     <bean id = "datasource"
+<!--      <bean id = "datasource"
             class = "com.mchange.v2.c3p0.ComboPooledDataSource">
             <property name="driverClass" value  = "com.mysql.jdbc.Driver"/>
             <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test"></property>
             <property name="user" value="root"></property>
             <property name="password" value="123"></property>
-     </bean> 
+     </bean>  -->
 </beans>

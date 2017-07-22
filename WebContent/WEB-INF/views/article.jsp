@@ -69,28 +69,17 @@
 			<br>
 			<div id="parameter">
 				<div class="obj_name">
-					<div class="title">
-					</div>
 					<div class="titledown">
-						<div id="impression">
-							<img src="resource/img/code.png">
-						</div>
 						<br><span>THX</span>
 					</div>
 				</div>
 				<br> <br>
 				<div class="obj_name">
-					<div class="title">
-						<h>&nbsp;最新文章</h>
-					</div>
 					<div class="titledown">
 					</div>
 				</div>
 				<br> <br>
 				<div class="obj_name">
-					<div class="title">
-						<h>&nbsp;最新图片</h>
-					</div>
 				</div>
 				<br>			
 			</div>
@@ -116,7 +105,6 @@
 					<div id="articles">
 						<h id=${data.id}>${data.title}</h>
 						<div class="arti_img">
-							<img src="resource/article_img/${data.img}">
 							<h1>${data.content}</h1>
 						</div>
 						<hr></hr>

@@ -4,6 +4,7 @@
 <!--<cache type="PERPETUAL" eviction="LRU" flushInterval="60000"
 		size="512" readOnly="true" /> -->
 	<sql id="article_columns"> title,content,img,author,time,id </sql>
+	<sql id="article_columns_withoutid"> title,content,img,author,time</sql>
 	
 	<sql id="comment_columns">author,id,time,comment</sql>
 	
@@ -46,10 +47,7 @@
 	<!-- INSERT -->
 	
 	<insert id="newArticle" parameterType="Article" useGeneratedKeys="true" keyProperty="id">
-		<selectKey keyProperty="id" resultType="int" order="BEFORE">
-			select max(id) from article
-		</selectKey>
-		insert into article(<include refid="article_columns"></include>) values(#{title},#{content},#{img},#{author},#{time},#{id}+1)
+		insert into article(<include refid="article_columns_withoutid"></include>) values(#{title},#{content},#{img},#{author},#{time})
 	</insert>
 	
 	<insert id="Comments" parameterType="Comment">

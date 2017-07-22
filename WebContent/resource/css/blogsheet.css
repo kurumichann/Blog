@@ -1,6 +1,7 @@
 body{
 	
 	background-attachment:scroll;
+	background:#eee;
 	color:#918ea5;
 	margin: 0px;
 	
@@ -10,14 +11,12 @@ input{
     border-color: rgb(169, 169, 169);
     border-style: solid;
 }
-a{
-	color:#eee;
-}
 a:link{
 	text-decoration:none;	
 }
 ul{
 	font-famliy:DFKai-SB;
+	
 }
 a:hover{
 	color: #4399ee;
@@ -108,13 +107,13 @@ a:hover{
 }
 .obj_name{
 	position:relative;
-	background-color:rgba(0,0,0,0.5);
+	background:#dddddd;
+	box-shadow:1px 2px 3px #eee;
 }
 .obj_name ul,li{
 	list-style-type:none;
 	margin:0px;
 	text-align:left;
-	
 }
 
 #navigation{
@@ -123,7 +122,7 @@ a:hover{
 	margin:0 0 0 0;
 	width:1024px;
 	height:30px;
-	background-color:rgba(0,0,0, 0.5);
+	background-color:#dddddd;
 }  
 #navi_sort{
 	padding: 0;
@@ -155,7 +154,7 @@ a:hover{
 	margin-bottom: 0px;
 }
 #arti textarea{
-	background-color: rgba(97,97,97,0.5);
+	background-color: white;
 	margin-left: -0px;
 	
 }
@@ -171,7 +170,7 @@ a:hover{
 
 }
 #con {
-	background-color: rgba(0,0,0,0.5);
+	/* background-color: rgba(0,0,0,0.5); */
 	position:absolute;
 	left:220px;
 	width: 804px;
@@ -182,7 +181,8 @@ a:hover{
 	right: 10px;
 	padding: 5px;
 	width: 80px;
-	top:0px;
+	top:-10px;
+	z-index:20;
 }
 #login_user{
 	padding-left: 0px;
@@ -190,17 +190,20 @@ a:hover{
 }
 #pages_ul {
 	float:left;
-	margin-left: 100px;
+	background:white;
+	margin-left:30px;
+	padding-left:200px;
+	box-shadow:1px 2px 3px #ddd;
+	width: 564px;
 }
 #arti_title{
-	background-color:rgba(97,97,97,0.5);
+	background-color:white;
     border-width: 1px;
     border-color: rgb(169, 169, 169);
     border-style: solid;
 }
 #pages_ul li{
 	float: left;
-	background-color:  #4f4f4f;
 }
 #pages_ul li a:HOVER{
 	background-color:rgba(0,0,0, 0.5);
@@ -228,7 +231,11 @@ a:hover{
 	text-align: left;
 }
 .arti_info{
-	width: 604px;
+	width: 810px;
+	height:30px;
+	background:#eee;
+	position: relative;
+	right:20px;
 }
 #continue{
 	font-size: 14px;

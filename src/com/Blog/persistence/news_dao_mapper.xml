@@ -3,7 +3,7 @@
 <mapper namespace="com.Blog.persistence.news_dao_interface">
 <!--<cache type="PERPETUAL" eviction="LRU" flushInterval="60000"
 		size="512" readOnly="true" /> -->
-	<sql id="news_columns"> title,img,time,content,author </sql>
+	<sql id="news_columns"> title,time,content,author </sql>
 	
 	<select id="getTotalCount"  resultType="int"
 		useCache="true">
@@ -26,8 +26,8 @@
 		select <include refid="news_columns"></include> from where title like %#{_parameter}% or author = ${_parameter}
 	</select>
 	
-	<insert id="addNews" parameterType="News">
-		insert into news(<include refid="news_columns"></include>) values(#{title},#{img},#{time},#{content},#{author})
+	<insert id="addNews" parameterType="News" useGeneratedKeys="true" keyProperty="id">
+		insert into news(<include refid="news_columns"></include>) values(#{title},#{time},#{content},#{author})
 	</insert>
 	
 	
