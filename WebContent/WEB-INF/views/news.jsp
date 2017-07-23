@@ -123,26 +123,6 @@
 							</article>
 						</c:forEach>
 					</div>
-					<security:authorize
-						access="hasRole('manager') or hasRole('general')">
-						<security:authentication property="principal.username"
-							var="authorName" scope="session" />
-						<sf:form modelAttribute="article" method="post" id="arti"
-							enctype="multipart/form-data">
-							<span>标题：</span>
-							<sf:input path="title" type="text" id="arti_title" />
-							<!-- <span>图片</span>
-							<input type="file" id="arti_img" name="arti_img" /> -->
-							<span>类别：</span>
-							<sf:input path="category" type="text" id="arti_category" />
-							<br />
-							<br />
-							<span>内容：</span>
-							<sf:textarea path="content" rows="10" cols="45" id="arti_content" />
-							<br />
-							<input id="arti_submit" type="submit" />
-						</sf:form>
-					</security:authorize>
 					<ul id="pages_ul">
 						<li id="Page_number">Page <a id="nowPage" onclick="turnTopage(1)">1</a>of<a id="totalPage" onclick="turnTopage()"></a>
 						</li>

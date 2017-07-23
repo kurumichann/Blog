@@ -15,6 +15,7 @@
 <link type="text/css" rel="stylesheet" href="resource/css/article.css">
 <link type="text/css" rel="stylesheet" href="resource/css/music.css">
 <link type="text/css" rel="stylesheet" href="resource/css/picture.css">
+<link rel="shortcut icon" type="image/x-icon" href="resource/img/icon.ico" media="screen" />
 <script src="resource/jquery-1.11.3.js" type="text/javascript"></script>
 <script type="text/javascript" src="resource/js/sort.js"></script>
 <script type="text/javascript" src="resource/js/turnTopage.js"></script>

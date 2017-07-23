@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class PictureController {
     private imgCompress imgcompress;
  	@Autowired	
  	private  HttpSession session;
+ 	@Autowired
+ 	private  HttpServletRequest request;
     @Autowired
     public PictureController(Picture_service pictureService,imgCompress imgcompress) {
     	this.pictureService = pictureService;
@@ -70,7 +73,8 @@ public class PictureController {
 			   try {
 				imgcompress.setImg(img);
 				imgcompress.resizeFix(500,400, 
-						getClass().getResource("/").getFile().toString().replace("WEB-INF/classes/", "resource/picture"), picture.getImg());
+						/*getClass().getResource("/").getFile().toString().replace("WEB-INF/classes/"*/
+						request.getSession().getServletContext().getRealPath("/")+"WebContent/resource/picture/", picture.getImg());
 			   } catch (IOException e) {
 				e.printStackTrace();
 			    }

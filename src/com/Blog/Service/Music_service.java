@@ -19,7 +19,5 @@ public class Music_service {
 		int id = dao.genertateKey();
 		music.setId(id+1);
 		dao.addMusic(music);
-		dao.addMusicSrc(music);
-		dao.addMusicImg(music);
 	}
 }

@@ -3,8 +3,8 @@
 <mapper namespace="com.Blog.persistence.blog_dao_interface">
 <!--<cache type="PERPETUAL" eviction="LRU" flushInterval="60000"
 		size="512" readOnly="true" /> -->
-	<sql id="article_columns"> title,content,img,author,time,id </sql>
-	<sql id="article_columns_withoutid"> title,content,img,author,time</sql>
+	<sql id="article_columns"> title,content,img,author,time,category,id </sql>
+	<sql id="article_columns_withoutid"> title,content,img,author,time,category</sql>
 	
 	<sql id="comment_columns">author,id,time,comment</sql>
 	
@@ -47,7 +47,7 @@
 	<!-- INSERT -->
 	
 	<insert id="newArticle" parameterType="Article" useGeneratedKeys="true" keyProperty="id">
-		insert into article(<include refid="article_columns_withoutid"></include>) values(#{title},#{content},#{img},#{author},#{time})
+		insert into article(<include refid="article_columns_withoutid"></include>) values(#{title},#{content},#{img},#{author},#{time},#{category})
 	</insert>
 	
 	<insert id="Comments" parameterType="Comment">
@@ -62,5 +62,10 @@
 	<delete id="deleteComment">
 		delete  from article_comment where id = #{_parameter}
 	</delete>
+	
+	<select id="getCategories"  resultType="String"
+		useCache="true" >
+		select distinct(category) from article where category != 'null'
+	</select>
 	
 </mapper>

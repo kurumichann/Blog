@@ -1,6 +1,8 @@
 package com.Blog.Controller;
 
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -74,7 +76,6 @@ public class HomeController {
 	   article.setTime(format.format(new Date()));
 	   article.setImg(null);
 	   article.setContent(convertToHtml(article.getContent()));
-	   System.out.print(article.getContent());
 //	   if(image.getContentType().subSequence(6, image.getContentType().length()).equals("ation/octet-stream"))
 //	   {
 //		   article.setImg("null");
@@ -108,8 +109,15 @@ public class HomeController {
    @ResponseBody
    public List<Object> searchArticle(@PathVariable String keyword)
    {
-	   System.out.println("search for article "+keyword);
-	   return blog_service.searchArticle(keyword);
+	   String key = "";
+	   try {
+		//System.out.println("search for article "+URLDecoder.decode(keyword,"UTF-8"));
+		   key = URLDecoder.decode(keyword,"UTF-8");
+	} catch (UnsupportedEncodingException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	   return blog_service.searchArticle(key);
    }
    
    @RequestMapping(value={"article/getcomment_id={keyword}","index/article/getcomment_id={keyword}"})

@@ -2,7 +2,7 @@ package com.Blog.persistence;
 
 public class picture {
 		
-	private String img = null;
+	private  String img = null;
 	private  String createTime = null;
 	private  String user = null;
 	private  String content = null;

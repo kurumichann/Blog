@@ -2,7 +2,6 @@ package com.Blog.imgCompress;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -10,9 +9,6 @@ import javax.imageio.ImageIO;
 import org.apache.commons.fileupload.disk.DiskFileItem;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
-
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 public class imgCompress {
 	private Image img;
@@ -87,11 +83,13 @@ public class imgCompress {
 		// SCALE_SMOOTH �������㷨 ��������ͼƬ��ƽ���ȵ� ���ȼ����ٶȸ� ���ɵ�ͼƬ�����ȽϺ� ���ٶ���
 		BufferedImage image = new BufferedImage(w, h,BufferedImage.TYPE_INT_RGB ); 
 		image.getGraphics().drawImage(img, 0, 0, w, h, null); // ������С���ͼ
-		File destFile = new File(path+"/"+fileName);
-		FileOutputStream out = new FileOutputStream(destFile); // ������ļ���
-		// ��������ʵ��bmp��png��gifתjpg
-		JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-		encoder.encode(image); // JPEG����
-		out.close();
+//		File destFile = new File(path+"/"+fileName);
+//		FileOutputStream out = new FileOutputStream(destFile); // ������ļ���
+//		// ��������ʵ��bmp��png��gifתjpg
+//		JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
+//		encoder.encode(image); // JPEG����
+		System.out.println(path+fileName);
+		ImageIO.write(image, "jpg", new File(path+fileName));
+//		out.close();
 	}
 }

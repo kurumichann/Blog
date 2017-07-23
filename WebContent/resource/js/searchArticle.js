@@ -10,9 +10,8 @@ $(function(){
         $("#search_keyword").bind('keyup', function(event){           
             if(event.which=="13"&&$(this).val()!="")
             {
-            	 console.log($("#search_keyword").val())
                if(window.location.href.indexOf("index")!=-1){      
-                 $.get("searcharticle="+$("#search_keyword").val(),
+                 $.get(encodeURI(encodeURI("searcharticle="+$("#search_keyword").val())),
                        function(data,textStatus){ //callback                       
                            $("article").remove();
                            $("#pages_ul").remove();
@@ -55,17 +54,10 @@ $(function(){
 
 )
 function generateArticle(data){
-　　　　 if(data.img　!= null){   
-           var article = 
-            "<article class='article'>"+"<a class='arti_h'>"+data.title+"</a>"+"<div class='arti_info'>"+                           
-              "由<h>"+data.author+"在"+getLocalTime(data.time)+"</h>"+
-             "<div class='arti_img'>"+"<h1>"+data.content+"</h1></div><footer><hr></hr></footer></article>";
-           }else{
               var article = 
-            "<article class='article'>"+"<h2 class='arti_h'>"+data.title+"</h2>"+"<div class='arti_info'>"+                           
-             "由<a class='author' >"+data.author+"</a>在<a>"+getLocalTime(data.time)+"</a>"+
-             "<div class='arti_img'><h1>"+data.content+"</h1></div><footer><hr></hr></footer></article>";
-           }
+              "<article class='article'><div class='arti_info'><h>"+data.author+"&nbsp;&nbsp;"+getLocalTime(data.time)+
+              "</h></div><a id="+data.id+" href = article/id="+data.id+">"+data.title+"</a>"+
+				"</header><div class='arti_img'><h1>"+data.content+"</h1></div></article>"
          $("#articles").append(article);
          $("#articles").css({
              "width":"731px",

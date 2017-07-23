@@ -5,10 +5,18 @@ public class article {
       private String content;
       private String img;
       private String author;
+      private String category;
       private String time;
       private int id;
       private int totalCount;
       
+      
+    public String getCategory() {
+		return category;
+	}
+    public void setCategory(String category) {
+		this.category = category;
+	}
 	public int getTotalCount() {
 		return totalCount;
 	}

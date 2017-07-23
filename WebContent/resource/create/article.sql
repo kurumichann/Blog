@@ -4,6 +4,7 @@ CREATE TABLE ARTICLE (
     img varchar(50),
     time timestamp NOT NULL,
     author varchar(20) NOT NULL,
+    category varchar(10),
     id int(10) NOT NULL auto_increment,
     PRIMARY KEY(id) 
 	
