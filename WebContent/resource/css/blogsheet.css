@@ -70,7 +70,7 @@ a:hover{
 .titledown{
 	width:200px;
 	margin:0 auto;
-
+	
 	
 }
 .titledown span{
@@ -79,6 +79,12 @@ a:hover{
 	font-weight:bold;
 	
 }
+.titledown a{
+
+	color:#258fb8;
+	
+}
+
 #impression{
 	background-color:white;
 	width: 140px;

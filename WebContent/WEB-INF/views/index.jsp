@@ -15,22 +15,20 @@
 <html>
 <meta name="_csrf" content="${_csrf.token}"/>  
 <meta name="_csrf_header" content="${_csrf.headerName}"/>  
-<link type="text/css" rel="stylesheet" href="resource/css/blogsheet.css">
-<link type="text/css" rel="stylesheet" href="resource/css/article.css">
-<link type="text/css" rel="stylesheet" href="resource/css/login&register.css">
-<link rel="shortcut icon" type="image/x-icon" href="resource/img/icon.ico" media="screen" />
-<link rel="shortcut icon" type="image/x-icon" href="resource/img/icon.ico" media="screen" />
-<script src="resource/jquery-1.11.3.js" type="text/javascript"></script>
+<link type="text/css" rel="stylesheet" href="http://otnatze91.bkt.clouddn.com/css/blogsheet.css">
+<link type="text/css" rel="stylesheet" href="http://otnatze91.bkt.clouddn.com/css/article.css">
+<link type="text/css" rel="stylesheet" href="http://otnatze91.bkt.clouddn.com/css/login&register.css">
+<link rel="shortcut icon" type="image/x-icon" href="http://otnatze91.bkt.clouddn.com/img/icon.ico" media="screen" />
+<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js" type="text/javascript"></script>
 
-<script type="text/javascript" src="http://olz0c9a94.bkt.clouddn.com/js/sort.js"></script>
-<script type="text/javascript" src="http://olz0c9a94.bkt.clouddn.com/js/loop.js"></script>
-<script type="text/javascript" src="http://olz0c9a94.bkt.clouddn.com/js/turnTopage.js"></script>
-<script type="text/javascript" src="resource/js/login.js"></script>
-<script type="text/javascript" src="http://olz0c9a94.bkt.clouddn.com/js/loadTop3.js"></script>
-<script type="text/javascript" src="http://olz0c9a94.bkt.clouddn.com/js/navigation.js"></script>
-<script type="text/javascript" src="resource/js/searchArticle.js"></script>
-<script type="text/javascript" src="http://olz0c9a94.bkt.clouddn.com/js/roleBasedList.js"></script>
-<script type="text/javascript" src="http://olz0c9a94.bkt.clouddn.com/js/length_restrict.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/sort.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/turnTopage.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/login.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/loadTop3.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/navigation.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/searchArticle.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/roleBasedList.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/length_restrict.js"></script>
 <head>
 <title>KURUMI NO jiken</title>
 </head>
@@ -40,7 +38,7 @@
 	<div id="main">
 		<div id="toptag">
 		  <div id = "img">
-			<img src="http://olz0c9a94.bkt.clouddn.com/img/loop.jpg">	
+			<img src="http://otnatze91.bkt.clouddn.com/img/loop_1.jpg">	
 		  </div>			
 		</div>
 		<div id="content">
@@ -76,7 +74,12 @@
 			<div id="parameter">
 				<div class="obj_name">
 					<div class="titledown">
-						<br><span>//TODU</span>
+						<a href="category=Java">#Java</a><br>
+						<a href="category=Hadoop">#Hadoop</a><br>
+						<a href="category=Design Mode">#Design Mode</a><br>
+						<a href="category=Arthmetic">#Arthmetic</a><br>
+						<a href="category=OS">#OS</a><br>
+						<a href="category=TCP/IP">#TCP/IP</a><br>
 					</div>
 				</div>
 				<br> <br>

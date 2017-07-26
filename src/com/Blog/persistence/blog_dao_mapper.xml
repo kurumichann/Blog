@@ -63,9 +63,9 @@
 		delete  from article_comment where id = #{_parameter}
 	</delete>
 	
-	<select id="getCategories"  resultType="String"
+	<select id="getArticleByCategory"  resultType="Article"
 		useCache="true" >
-		select distinct(category) from article where category != 'null'
+		select <include refid="article_columns"></include> from article where category = #{category}
 	</select>
 	
 </mapper>

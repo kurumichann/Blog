@@ -13,18 +13,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-<link type="text/css" rel="stylesheet" href="resource/css/blogsheet.css">
-<link type="text/css" rel="stylesheet" href="resource/css/article.css">
-<link type="text/css" rel="stylesheet" href="resource/css/login&register.css">
-<script src="resource/jquery-1.11.3.js" type="text/javascript"></script>
-<script type="text/javascript" src="resource/js/sort.js"></script>
-<script type="text/javascript" src="resource/js/loop.js"></script>
-<script type="text/javascript" src="resource/js/login.js"></script>
-<script type="text/javascript" src="resource/js/loadTop3.js"></script>
-<script type="text/javascript" src="resource/js/articleDetail.js"></script>
-<script type="text/javascript" src="resource/js/navigation.js"></script>
-<script type="text/javascript" src="resource/js/searchArticle.js"></script>
-<script type="text/javascript" src="resource/js/roleBasedList.js"></script>
+<link type="text/css" rel="stylesheet" href="http://otnatze91.bkt.clouddn.com/css/blogsheet.css">
+<link type="text/css" rel="stylesheet" href="http://otnatze91.bkt.clouddn.com/css/article.css">
+<link type="text/css" rel="stylesheet" href="http://otnatze91.bkt.clouddn.com/css/login&register.css">
+<link rel="shortcut icon" type="image/x-icon" href="http://otnatze91.bkt.clouddn.com/img/icon.ico" media="screen" />
+<script src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/sort.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/turnTopage.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/login.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/loadTop3.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/navigation.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/searchArticle.js"></script>
+<script type="text/javascript" src="http://otnatze91.bkt.clouddn.com/js/roleBasedList.js"></script>
 <head>
 <title>KURUMI NO jiken</title>
 </head>
@@ -34,7 +35,7 @@
 	<div id="main">
 		<div id="toptag">
 		  <div id = "img">
-			<img src="resource/img/loop.jpg">	
+			<img src="http://otnatze91.bkt.clouddn.com/img/loop_1.jpg">	
 		  </div>			
 		</div>
 		<div id="content">
@@ -98,18 +99,20 @@
 							</ul>
 						</security:authorize>
 					</div>
-				<c:forEach var="data" items="${datas}" end="8">
-					<div class="arti_info">
-						<h>由${data.author}在${data.time}</h>
-					</div>
 					<div id="articles">
-						<h id=${data.id}>${data.title}</h>
-						<div class="arti_img">
-							<h1>${data.content}</h1>
-						</div>
-						<hr></hr>
-				    </div>
-				</c:forEach>
+						<c:forEach   var="data" items="${datas}" end="8">
+							<article class="article">
+							<div class="arti_info">
+								<h>${data.author}&nbsp;&nbsp;${data.time}&nbsp;&nbsp;#${data.category}</h>
+							</div>
+							<a id=${data.id} href = article/id=${data.id}>${data.title}</a>
+							</header>
+							<div class="arti_img">
+								<h1>${data.content}</h1>
+							</div>
+							</article>
+						</c:forEach>
+					</div>
 
 			</div>
 			</div>

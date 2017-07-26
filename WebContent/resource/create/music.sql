@@ -1,4 +1,4 @@
-CREATE TABLE MUSIC(
+CREATE TABLE music(
     title varchar(30) NOT NULL,
     description varchar(200),
     img varchar(100),

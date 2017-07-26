@@ -52,6 +52,17 @@ public class HomeController {
 	   articlemodel.put("article", new article());
 	   return "index";
    }
+   
+   @RequestMapping(value={"/category={category}"},method = RequestMethod.GET)
+   public String searchByCategory(@PathVariable String category,Map<String,Object> limitedmodel,
+		   Map<String,Object> allmodel,Map<String,Object> articlemodel,Map<String,Object> usermodel)
+   {
+	   allmodel.put("datas",blog_service.searchArticleByCategory(category));
+	   usermodel.put("userdata", new User());
+	   articlemodel.put("article", new article());
+	   return "index";
+   }
+   
    @RequestMapping(value = {"index/page={pagenumber}"+"time"+"{sort}","index/page={pagenumber}"+"time"+"{sort}"})
    public String changePage(@PathVariable int pagenumber ,@PathVariable String sort,
 		   Map<String,Object> limitedmodel,Map<String,Object> articlemodel)
@@ -65,7 +76,7 @@ public class HomeController {
 	   
    }
    
-   @RequestMapping(value={"index/page={pagenumber}"+"time"+"{sort}","index"},method = RequestMethod.POST)
+   @RequestMapping(value={"index/page={pagenumber}"+"time"+"{sort}","index","category"},method = RequestMethod.POST)
    public String addNewArticleFromform(article article,Map<String,Object> limitedmodel,
 		   Map<String,Object> articlemodel,
 		   @RequestParam(value="arti_img",required=false) MultipartFile image)

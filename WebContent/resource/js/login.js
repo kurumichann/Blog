@@ -45,7 +45,7 @@ $(function(){
                 "display":"block",
                 "left":browserleft,
                 "top":browsertop,
-                "background-image":"url(resource/img/login.jpg)",
+                "background-image":"url(http://otnatze91.bkt.clouddn.com/img/login.jpg)",
                 "z-index":"99"});
             $("#modaldialog input [type!=radio]").css({
                 "width":"150",
@@ -73,6 +73,7 @@ $(function(){
                  
           //获得焦点动画，失去焦点ajax检查用户名存在性
            checkUser();
+            
            $("#register")
            .css({
               "position":"absolute",

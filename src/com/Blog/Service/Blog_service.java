@@ -54,6 +54,10 @@ public class Blog_service {
    
     	return dao.searchArticle(keyword);
     }
+    public List<Map<String, Object>> searchArticleByCategory(String category)
+    {
+    	return dao.getArticleByCategory(category);
+    }
     public int getTotalCount(){
     	return dao.getTotalCount();
     }

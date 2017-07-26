@@ -19,6 +19,7 @@ public interface blog_dao_interface{
     public List<Object> getComments(int id);
     public void Comments(comment comment);
     public List<Map<String, Object>> searchArticleById(int id);
+    public List<Map<String, Object>> getArticleByCategory(String category);
     
 }
     

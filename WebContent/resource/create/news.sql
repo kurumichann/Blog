@@ -1,4 +1,4 @@
-CREATE TABLE NEWS(
+CREATE TABLE news(
     title varchar(30) NOT NULL,
     content varchar(2000) NOT NULL,
     time timestamp NOT NULL,

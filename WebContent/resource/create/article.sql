@@ -1,4 +1,4 @@
-CREATE TABLE ARTICLE (
+CREATE TABLE article (
     title varchar(30) NOT NULL,
     content varchar(2000) NOT NULL,
     img varchar(50),

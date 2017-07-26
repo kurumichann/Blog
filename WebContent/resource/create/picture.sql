@@ -1,4 +1,4 @@
-CREATE TABLE PICTURE(
+CREATE TABLE picture(
     content varchar(2000) NOT NULL,
     img varchar(50) NOT NULL,
     createTime timestamp NOT NULL,

@@ -23,6 +23,15 @@ li{
 }
 .article h1{
 	width: 604px;
+	line-height:1.6em;
+	margin:0 0;
+	font-size:15px;
+}
+.arti_img h1{
+	width: 604px;
+	line-height:1.6em;
+	margin:0 0;
+	font-size:15px;
 }
 .article hr{
 	border-bottom: 1px;
