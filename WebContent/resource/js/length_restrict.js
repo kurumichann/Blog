@@ -11,7 +11,7 @@ $(document).ready(function() {
         }
         
         $(".arti_img h1").eq(i).text(text.substring(0,100))
-        .append("<a id = continue>继续阅读 →</a>");
+        .append("......");
     }
     
 });
